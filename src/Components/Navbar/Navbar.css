@@ -36,11 +36,16 @@
 .nav-menu  li{
  display: flex;
  list-style: none;
+ list-style: none;
  flex-direction: column;
  align-items: center;
  justify-content: center;
  gap:3px;
  cursor: pointer;
+}
+.nav-menu li a{
+    text-decoration: none;
+    color: black;
 }
 .nav-menu hr{
     border: none;
@@ -56,6 +61,8 @@
 }
 .nav-login-book button{
 width:157px;
+text-decoration: none;
+  color: blue;
 height:58px;
 outline: none;
 border: 1px solid blue;
@@ -65,6 +72,10 @@ background:white;
 cursor: pointer;
 
 
+}
+.nav-login-book button a {
+     text-decoration: none;
+     color: black;
 }
 .nav-login-book button:active{
     background-color:#515151;

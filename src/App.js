@@ -30,6 +30,7 @@ import Booking from "./Pages/Booking";
 import Footer from "./Components/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
+import PaymentPage from "./Pages/PaymentPage";
 import Login from "./Pages/Login";
 
 import About from "./Pages/About";
@@ -44,6 +45,11 @@ function App() {
         <Routes>
           <Route path="/About" element={<About />} />
           <Route path="/Book" element={<Booking />} />
+          <Route path="/Book" element={<Booking />} />
+          <Route path="/Contact" element={<Booking />} />
+          <Route path="/Support" element={<Booking />} />
+          <Route path="/Payment" element={<PaymentPage />} />
+
 
           <Route path="/Home" element={<Home />} />
           <Route path="/login" element={<Login />} />
