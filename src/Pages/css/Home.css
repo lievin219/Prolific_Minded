@@ -1,27 +1,142 @@
-.transformation{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    gap: 20%;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 60vh;
-    background-color: #f7fff6;
-}
-.transformation img{
-    
-        width:250px;  /* Adjust width as needed */
-        height: auto;
-        border-radius: 10%; /* Maintains aspect ratio */
-    } 
-    .transfo-right{
-         margin-left: 20%;
-         justify-content: right;
-    }
-    .texting{
-         max-width: 500px;
-         margin-right: 10px;
-        
-    }
-
+/* Base styles for desktop */
+.transformatio {
+     position: relative;
+     display: flex;
+     flex-direction: row;
+     gap: 10%;
+     justify-content: space-between;
+     width: 100%;
+     height: 80vh;
+     background-color: #F7FFF6;
+ }
+ 
+ .transfo-left {
+     margin-right: -20%;
+ }
+ 
+ .transformatio img {
+     width: 250px;
+     height: 200px;
+     margin-left: 20%;
+     margin-top: 30%;
+     border-radius: 10%;
+ }
+ 
+ .transfo-right {
+     margin-right: -5%;
+     justify-content: right;
+ }
+ 
+ .heading {
+     max-width: 700px;
+ }
+ 
+ .texting {
+     max-width: 500px;
+     margin-right: 10px;
+ }
+ 
+ .navigation {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }
+ 
+ .aportion {
+     max-width: 650px;
+ }
+ 
+ .columning {
+     gap: 30px;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+ }
+ 
+ /* Column style */
+ .columning1, .columning2, .columning3 {
+     width: 200px;
+     height: 250px;
+     padding: 25px;
+     margin: 40px auto;
+     border: 3px solid white;
+     border-radius: 12px;
+     background-color: #ffffff;
+     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+     text-align: center;
+     font-family: 'Arial', sans-serif;
+     color: #333;
+     transition: all 0.3s ease-in-out;
+ }
+ 
+ .columning1 h1, .columning2 h1, .columning3 h1 {
+     margin-bottom: 10px;
+     font-size: 15px;
+     font-family: 'Roboto', sans-serif;
+     margin-top: -20px;
+     color: black;
+     max-width: 950px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ 
+ .columning1 p, .columning2 p, .columning3 p {
+     max-width: 950px;
+     font-size: 10px;
+     margin-top: -5px;
+ }
+ 
+ .columning1 button, .columning2 button, .columning3 button {
+     margin-top: -10px;
+ }
+ 
+ /* Media Queries for responsiveness on smaller screens */
+ @media (max-width: 950px) {
+     .transformatio {
+         flex-direction: column; /* Stack items vertically */
+         height: auto; /* Adjust height for mobile */
+     }
+ 
+     .transformatio img {
+         width: 100%; /* Full width of image */
+         margin-left: 0; /* Remove margin */
+         margin-top: 10%; /* Adjust vertical margin */
+     }
+ 
+     .transfo-left {
+         margin-right: 0; /* Remove right margin */
+     }
+ 
+     .columning {
+         grid-template-columns: 1fr; /* Stack columns vertically */
+     }
+ 
+     .columning1, .columning2, .columning3 {
+         width: 100%; /* Full width on mobile */
+         height: auto; /* Adjust height for mobile */
+         margin: 20px 0; /* Adjust margin between blocks */
+         padding: 15px; /* Adjust padding */
+     }
+ 
+     .columning1 h1, .columning2 h1, .columning3 h1 {
+         font-size: 14px; /* Smaller font size on mobile */
+     }
+ 
+     .columning1 p, .columning2 p, .columning3 p {
+         font-size: 12px; /* Slightly larger text for readability */
+     }
+ 
+     .texting, .heading {
+         max-width: 100%; /* Full width of text areas */
+     }
+ 
+     .navigation {
+         align-items: flex-start; /* Align the navigation content for better mobile experience */
+     }
+ 
+     /* Adjust any additional spacing if necessary */
+     .aportion {
+         max-width: 100%;
+     }
+ }
+ 

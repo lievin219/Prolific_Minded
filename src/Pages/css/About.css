@@ -1,43 +1,98 @@
-.about{
+/* Base styles for desktop */
+.about {
      display: flex;
      gap: 30px;
-}
-.about-image{
-     justify-content:right;
+ }
+ 
+ .about-image {
+     justify-content: right;
      margin-left: auto;
      margin-right: 5%;
-}
-.about-Header{
-      margin-left: 5%;
-}
-.about-image img{
-    justify-content:right;
-    border-radius: 30px;
-    margin-left: auto;
-    width: 300px;  /* Adjust width as needed */
-    height: auto; /* Maintains aspect ratio */
-}
-.text{
+ }
+ 
+ .about-Header {
+     margin-left: 5%;
+ }
+ 
+ .about-image img {
+     justify-content: right;
+     border-radius: 30px;
+     margin-left: auto;
+     width: 300px;  /* Adjust width as needed */
+     height: auto; /* Maintains aspect ratio */
+ }
+ 
+ .text {
      max-width: 600px;
-}
-.transformation{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50vh;
-    background-color: #f4f4f4;
-}
-.transformation h1{
-    font-size: 18px;
-    margin-bottom: 10px;
-    max-width: 400px;
+ }
+ 
+ .transformation {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     height: 50vh;
+     background-color: #f4f4f4;
+ }
+ 
+ .transformation h1 {
+     font-size: 18px;
+     margin-bottom: 10px;
+     max-width: 400px;
      text-align: center;
-}
-.transformation button{
+ }
+ 
+ .transformation button {
      background-color: blue;
      font-size: 10px;
      font-weight: 300;
-}
+ }
+ 
+ /* Media Queries for responsiveness on smaller screens */
+ @media (max-width: 950px) {
+     /* Stack about section vertically */
+     .about {
+         flex-direction: column;
+         gap: 20px; /* Adjust gap for better mobile spacing */
+     }
+ 
+     .about-image {
+         margin-left: 0; /* Remove margin on mobile */
+         margin-right: 0;
+         text-align: center; /* Center image on mobile */
+     }
+ 
+     .about-image img {
+         width: 250px; /* Reduce image width on mobile */
+         height: auto; /* Keep aspect ratio */
+         margin: 10px auto; /* Center image horizontally */
+     }
+ 
+     .about-Header {
+         margin-left: 0; /* Remove margin on mobile */
+         text-align: center; /* Center heading text */
+     }
+ 
+     .text {
+         max-width: 100%; /* Full width on mobile */
+         margin: 0 10px; /* Add margin for spacing */
+     }
+ 
+     .transformation {
+         height: auto; /* Adjust height for mobile */
+         padding: 20px; /* Add padding for better spacing */
+     }
+ 
+     .transformation h1 {
+         font-size: 16px; /* Smaller font size for mobile */
+         max-width: 100%; /* Full width for heading */
+     }
+ 
+     .transformation button {
+         font-size: 12px; /* Slightly larger button text */
+         padding: 10px 20px; /* Add padding to make button more clickable */
+     }
+ }
+ 
