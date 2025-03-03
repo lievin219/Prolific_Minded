@@ -3,6 +3,7 @@
     margin: auto;
     padding: 20px;
     text-align: center;
+    
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -19,7 +20,7 @@
   .payment-button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #005EEA;
     color: white;
     border: none;
     border-radius: 5px;

@@ -1,192 +1,167 @@
- .navbar{
-    display: flex ;
-    justify-content: space-around;
+/* General Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
     padding: 16px;
-    box-shadow: 0px 1px 3px -2px  ;
+    box-shadow: 0px 1px 3px -2px;
     align-items: center;
-    
-
-    
-}
-
-.nav-logo{
-     display: flex;
-     align-items: center;
-}
-.nav-logo img{
-    width: 100px;  /* Adjust width as needed */
+    background-color: #fff;        
+  }
+  
+  .nav-logo {
+    display: flex;
+    align-items: center;
+  }
+  .nav-logo img {
+    width: 100px; /* Adjust width as needed */
     height: auto; /* Maintains aspect ratio */
-} 
-.nav-logo p{
-      color: black;
-       font-size: 35px;
-       font-weight: 600;
-}
-.nav-menu{
-     gap: 50px;
-     display: flex;
-     align-items: center;
-     list-style: none;
-     font-size: 15px;
-     list-style: none;
-     color:blueviolet;
-     font-family: Arial, sans-serif;
-     font-weight: 500;
-}
-.nav-menu  li{
- display: flex;
- list-style: none;
- list-style: none;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- gap:3px;
- cursor: pointer;
-}
-.nav-menu li a{
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    font-size: 15px;
+    color: blueviolet;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+  }
+  
+  .nav-menu li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+  }
+  
+  .nav-menu li a {
     text-decoration: none;
     color: black;
-}
-.nav-menu hr{
+  }
+  
+  .nav-menu hr {
     border: none;
-     width: 80%;
-     height: 3px;
-     border-radius: 10px;
-     background: blue;
-}
-.nav-login-book{
+    width: 80%;
+    height: 3px;
+    border-radius: 10px;
+    background: blue;
+  }
+  
+  .nav-login-book {
     display: flex;
     gap: 45px;
     align-items: center;
-}
-.nav-login-book button{
-width:157px;
-text-decoration: none;
-  color: blue;
-height:58px;
-outline: none;
-border: 1px solid blue;
-border-radius: 75px;
-color:blue;
-background:white;
-cursor: pointer;
-
-
-}
-.nav-login-book button a {
-     text-decoration: none;
-     color: black;
-}
-.nav-login-book button:active{
-    background-color:#515151;
-}
-.nav-cart-count{
-display: flex;
-align-items: center;
-justify-content: center;
-width:22px;
-height: 22px;
-margin-top: -35px;
-margin-left: -55px;
-font-size: 14px;
-border-radius: 11px;
-background: red;
-color: white;
-}
-.nav-dropdown{
+  }
+  
+  .nav-login-book .blue-button , .blue-buttone {
+    width: 157px;
+    text-decoration: none;
+    color: blue;
+    height: 58px;
+    outline: none;
+    border: 1px solid blue;
+    border-radius: 75px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-login-book .blue-button, .blue-buttone a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .nav-login-book .blue-button:hover , .blue-buttone:hover {
+    background-color: blue;
+    color: white;
+  }
+  
+  .nav-dropdown {
     display: none;
-}
-@media(max-width:1280px){
-     .navbar{
-        padding:12px 50px 
-     }
-     .nav-logo img{
-        width: 40px;
-     }
-     .nav-logo p{
-        font-size: 25px;
-     }
-     .nav-menu{
-        gap: 30px;
-        font-size: 16px;
-     }
-     .nav-login-book{
-         gap: 30px;
-
-     }
-     .nav-login-book button{
-         width: 120px;
-         height: 54px;
-          font-size: 16px;
-     }
-     .nav-cart-count{
-        margin-left: 40px;
-         font-size: 12px;
-         margin-left: -35px
-     }
-
-}
-@media(max-width:1024px){
-    .navbar{
-         padding:12px 10px;
+    cursor: pointer;
+  }
+  
+  .nav-dropdown span {
+    font-size: 30px;
+    color: black;
+  }
+  
+  @media (max-width: 800px) {
+    /* Navbar and logo adjustments */
+    .navbar {
+      padding: 8px 16px;
+      justify-content: space-between;
     }
-    .nav-menu{
-         gap: 25px;
-          font-size: 17px;
+  
+    .nav-logo img {
+      width: 80px;
     }
-    .nav-login-book button{
-     width:80px;
-     height: 35px;
-     font-size: 14px;
+  
+    /* Show hamburger menu button */
+    .nav-dropdown {
+      display: block;
     }
-    .nav-login-cart img{
-        width: 30px;
+  
+    /* Hide menu by default on mobile */
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      background-color: white;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      gap: 20px;
+      padding: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10;
     }
-    .nav-cart-count{
-         width: 18px;
-         height: 18px;
-         margin-left: -35px
+  
+    /* Toggle the menu visibility when clicked */
+    .nav-menu-visible {
+      display: flex;
     }
-}
-@media(max-width:800px){
-     .navbar{
-         padding: 0px 50px;
-     }
-     .nav-dropdown{
-         display: block;
-         width: 30px;
-         rotate: -90deg;
-         transition:0.5s
-     }
-     .nav-menu{
-         display: none;
-         height: 80px;
-         width:100%;
-         position: absolute;
-         background-color: white;
-         justify-content: center;
-         top: 50px;
-     }
-     .nav-menu-visible{
-         display: flex;
-     }
-     .nav-dropdown.open{
-         transform: rotate(90deg);
-     }
-}
-@media(max-width:500px){
-     .navbar{
-         padding: 8px 0px;
-         gap:0;
-}
-.nav-logo{
-     transform:scale(0.8);
-}
-.nav-menu{
-     height: 70px;
-     top:50px;
-}
-.nav-login-book{
-    transform: scale(0.95);
-}
-} 
+  
+    .nav-menu li {
+      text-align: center;
+      padding: 10px 0;
+      width: 100%;
+    }
+  
+    .nav-menu hr {
+      width: 90%;
+    }
+  
+    .nav-dropdown.open {
+      transform: rotate(90deg);
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .navbar {
+      padding: 8px 0px;
+      gap: 0;
+    }
+  
+    .nav-logo {
+      transform: scale(0.8);
+    }
+  
+    .nav-login-book {
+      transform: scale(0.95);
+    }
+  
+    .nav-menu {
+      top: 50px;
+      left: 0;
+      width: 100%;
+      background-color: white;
+    }
+  
+     .blue-button {
+      display: none;
+    }
+  }
+  

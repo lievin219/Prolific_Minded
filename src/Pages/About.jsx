@@ -2,8 +2,9 @@ import React from 'react'
 import './css/About.css'
 import picture from '../Components/Assets/Assets/victor.jpeg'
 import Newsletter from './Newsletter.jsx'
-
+import { useNavigate } from 'react-router-dom'
 const About = () => {
+  const navigate=useNavigate()
   return (
     <>
     <div className='about'>   
@@ -27,7 +28,7 @@ const About = () => {
     <div className='transformation'>
       <h1>    Are you ready to transfrom your Mental
       and phyisical Wellness Book a  session with us</h1>
-      <button>Make an Appointment</button>
+      <button onClick={()=>navigate('/Payment')}>Make an Appointment</button>
 
     </div>
     <Newsletter/>

@@ -1,136 +1,140 @@
-import React, { useState } from 'react';
-import './css/Login.css'
-import Cookies from 'js-cookie';  // Only import once
-import './css/Login.css';
-import { ToastContainer, toast } from 'react-toastify';
-
-// import useSignIn from 'react-auth-kit';  // Default import, not from 'hooks/useSignIn'
-
-import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import "./css/Login.css";
 
 const Login = () => {
-    //  const notify = () => toast.success("Login Succesfully!");
-  const notify_signup=()=>toast.success("User Registred Succesfully! Go to Login ");
-//   const notify_error = () => toast.error("Email Or Password Not Found !");
-  const notify_error_signup = () => toast.error("Email Or Password Not Correct!");
-
-  
-
-  
-
-//   useEffect(() => {
-
-//     const token = Cookies.get('authTokenii')
-//     setGetcookie(token)
-//   }, [])
-
-    const LoginFunc = async () => {
-        const authToken = Cookies.get('authTokenii')
-        let responses = await fetch('https://backend-mernproject-u66q.onrender.com/login', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${authToken}`,
-            'Content-Type': 'application/json'
-          },
-          credentials: 'include',
-          body: JSON.stringify(formData)
-        })
-    
-        let dataresponses = await responses.json()
-        if (dataresponses.message && dataresponses.token) {
-        //   const isSignedIn = signin({
-        //     auth: {
-        //       token: dataresponses.token,
-        //       type: "Bearer",
-        //     },
-        //     userState: dataresponses.user,
-        //   });
-     console.log('you are logged in ')
-    //       if (isSignedIn) {
-    //         notify()
-    //         setformData({...formData,email:"",password:""})
-    //         setTimeout(() => {
-    //           navigate('/shop', { replace: true });
-    //           window.location.reload();
-    //         }, 3000); 
-           
-            
-    //       } else {
-    //         alert("Login failed, unable to sign in")
-    //       }
-    //     } else {
-    //       notify_error()
-    //      setformData({...formData,email:"",password:""})
-                                                
-        }
-      }
-    
-
-
-    const Signup = async () => {
-        try {
-          let response = await fetch('https://backend-mernproject-u66q.onrender.com/Register', {
-            method: "POST",
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
-            },
-            credentials: "include",
-            body: JSON.stringify(formData)    
-          })
-          let responseData = await response.json();
-         
-       
-          if (responseData.success) {
-          notify_signup()
-            setTimeout(() => {
-              navigate('/login', { replace: true });
-              window.location.reload();
-            }, 3000); 
-         
-          } else {
-            notify_error_signup ()
-            setformData({...formData,email:"",password:"",role:""})
-          }
-        } catch (err) {
-          alert(`Registration failed due to ${err}`)
-        }
-      }
-    const [state, setState] = useState('Login')
-    const navigate = useNavigate()
-  const [formData, setformData] = useState({
-    role: "",
+  const navigate = useNavigate();
+  const [state, setState] = useState("Login");
+  const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
+  const notifySuccess = (message) => toast.success(message);
+  const notifyError = (message) => toast.error(message);
+
+  // Handle input changes
   const changeHandler = (e) => {
-    setformData({ ...formData, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Login Function
+  const loginFunc = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Store token in cookies
+        Cookies.set("authTokenii", data.token, { expires: 1, secure: true });
+
+        notifySuccess("Login Successful!");
+        setFormData({ email: "", password: "" });
+
+        setTimeout(() => {
+          navigate("/shop");
+          window.location.reload();
+        }, 2000);
+      } else {
+        notifyError(data.message || "Invalid email or password.");
+      }
+    } catch (error) {
+      notifyError("Something went wrong. Try again!");
+    }
+  };
+
+  // Signup Function
+  const signup = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        notifySuccess("User registered! Check your email for verification.");
+        setTimeout(() => {
+          setState("Login");
+        }, 2000);
+      } else {
+        notifyError(data.message || "Registration failed.");
+      }
+    } catch (error) {
+      notifyError(`Something went wrong. Try again! due to ${error}`);
+    }
+  };
+
   return (
-    <div className='loginsignup'>
-      <div className='loginsignup-container'>
+    <div className="loginsignup">
+      <div className="loginsignup-container">
         <h1>{state}</h1>
-        <div className='loginsignuppage-fields'>
-          {state === 'Sign up' && <input type="text" name='role' onChange={changeHandler} value={formData.role} placeholder='Your Role' />}
-          <input type="email" name='email' onChange={changeHandler} value={formData.email} placeholder='Email Address' />
-          <input type="password" onChange={changeHandler} name='password' value={formData.password} placeholder='Enter your Password' />
+        <div className="loginsignuppage-fields">
+          <input
+            type="email"
+            name="email"
+            onChange={changeHandler}
+            value={formData.email}
+            placeholder="Email Address"
+          />
+          <input
+            type="password"
+            name="password"
+            onChange={changeHandler}
+            value={formData.password}
+            placeholder="Enter your Password"
+          />
+          <input
+            type="password"
+            name="password"
+            onChange={changeHandler}
+            value={formData.role}
+            placeholder="Enter your role"
+          />
+          <input
+            type="password"
+            name="password"
+            onChange={changeHandler}
+            value={formData.name}
+            placeholder="Enter name"
+          />
         </div>
-        <button onClick={() => {
-          state === 'Login' ?LoginFunc():Signup()
-        }}>Continue</button>
-        {state === 'Login' ?
-          <p className='loginsignup-login'>Create an account? <span onClick={() => setState('Sign up')}>Signup Here</span></p> :
-          <p className='loginsignup-login'>Already have an account? <span onClick={() => setState("Login")}>Login Here</span></p>}
-        <div className='loginsignup-agree'>
-          <input type="checkbox" />
-          <p>By continuing, you agree to the terms of use and policy</p> 
-        </div>
+        <button onClick={state === "Login" ? loginFunc : signup}>
+          Continue
+        </button>
+        {state === "Login" ? (
+          <p className="loginsignup-login">
+            Create an account?{" "}
+            <span onClick={() => setState("Sign up")}>Signup Here</span>
+          </p>
+        ) : (
+          <p className="loginsignup-login">
+            Already have an account?{" "}
+            <span onClick={() => setState("Login")}>Login Here</span>
+          </p>
+        )}
       </div>
       <ToastContainer />
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

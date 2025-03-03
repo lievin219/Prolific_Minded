@@ -1,11 +1,14 @@
 import React from 'react'
 import './css/Home.css'
 import logo from '../Components/Assets/logo.jpeg'
+import PaymentPage from './PaymentPage'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 
 
 
 const Home = () => {
+  const navigate=useNavigate()
   return (
     <>
     <div className='transformatio'>
@@ -21,7 +24,7 @@ const Home = () => {
        <h5>Virtual Coaching</h5>
 
       
-       <button>Book now</button>
+       <button onClick={()=>navigate('/Payment')}>Book now</button>
     </div>
     
   </div>
@@ -41,21 +44,21 @@ const Home = () => {
         <img src="" alt="" />
         <h1>Holistic Health and Fitness Coaching</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur justo quis euismod vehicula. Quisque diam dui, imperdiet et hendrerit in, accumsan tempus erat. </p>
-        <button>Book Now</button>
+        <button onClick={()=>navigate('/Payment')}>Book Now</button>
       
       </div>
       <div className='columning2'>
       <img src="" alt="" />
         <h1>Holistic Health and Fitness Coaching</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur justo quis euismod vehicula. Quisque diam dui, imperdiet et hendrerit in, accumsan tempus erat. </p>
-        <button>Book Now</button>
+        <button onClick={()=>navigate('/Payment')}>Book Now</button>
 
       </div>
       <div className='columning3'>
       <img src="" alt="" />
         <h1>Holistic Health and Fitness Coaching</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur justo quis euismod vehicula. Quisque diam dui, imperdiet et hendrerit in, accumsan tempus erat. </p>
-        <button>Book Now</button>
+        <button onClick={()=>navigate('/Payment')}>Book Now</button>
       </div>
      </div>
 
