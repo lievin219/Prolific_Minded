@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Prolific_Minded/static/css/main.82fd9022.css",
+    "main.js": "/Prolific_Minded/static/js/main.e7e86221.js",
+    "static/js/488.e75445ad.chunk.js": "/Prolific_Minded/static/js/488.e75445ad.chunk.js",
+    "static/media/logo.jpeg": "/Prolific_Minded/static/media/logo.7c32b4f63bd7836881e0.jpeg",
+    "static/media/victor.jpeg": "/Prolific_Minded/static/media/victor.2278b62353263357f241.jpeg",
+    "index.html": "/Prolific_Minded/index.html",
+    "main.82fd9022.css.map": "/Prolific_Minded/static/css/main.82fd9022.css.map",
+    "main.e7e86221.js.map": "/Prolific_Minded/static/js/main.e7e86221.js.map",
+    "488.e75445ad.chunk.js.map": "/Prolific_Minded/static/js/488.e75445ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82fd9022.css",
+    "static/js/main.e7e86221.js"
+  ]
+}
